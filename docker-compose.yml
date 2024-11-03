@@ -2,17 +2,17 @@ version: '3.8'
 
 services:
   mysql:
-    container_name: mysql
-    image: mysql:latest
-    restart: always
+    image: mysql:latest # Or specify a version like mysql:8.0
+    container_name: mysql-kitra
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kitra   
-
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: kitra
     ports:
-      - "3306:3306"
+      - "3306:3306" # Maps the container's MySQL port to your host
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql # Persistent storage for database files
 
   app:
     container_name: kitra-api
