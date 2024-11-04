@@ -4,6 +4,8 @@ This is the Kitra API project, which allows users to collect treasures and manag
 
 ## Getting Started
 
+NOTE: environment variables are hard-coded only for convenience of the assessment, for plug-and-play purposes. Usually, I use docker secrets or k8s secrets when deploying on a containerized environment.
+
 To set up and run the project, follow these steps:
 
 ### Prerequisites
