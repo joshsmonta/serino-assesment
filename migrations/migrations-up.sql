@@ -1,27 +1,17 @@
-CREATE DATABASE kitra;
-USE kitra;
-
 CREATE TABLE treasures (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    latitude DECIMAL(10, 8),
-    longitude DECIMAL(11, 8),
-    name VARCHAR(100)
+  id INT NOT NULL PRIMARY KEY,
+  latitude DECIMAL(12, 4),
+  longitude DECIMAL(12, 4),
+  name VARCHAR(100)
 );
 
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    age INT,
-    password VARCHAR(255),
-    email VARCHAR(100),
-    total INT NULL
-);
+CREATE TABLE users (id INT NOT NULL PRIMARY KEY, name VARCHAR(100), age INT, password VARCHAR(255), email VARCHAR(100),total INT NULL);
 
 CREATE TABLE money_values (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    treasure_id INT,
-    amt INT,
-    FOREIGN KEY (treasure_id) REFERENCES treasures(id)
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  treasure_id INT,
+  amt INT,
+  FOREIGN KEY (treasure_id) REFERENCES treasures(id)
 );
 
 -- Seed treasures table
@@ -47,14 +37,14 @@ VALUES
   (117, 14.47720766, 120.9867927, 'T18');
 
 -- Seed users table
-INSERT INTO users (name, age, password, email)
+INSERT INTO users (id, name, age, password, email)
 VALUES
-  ('U1', 21, '123123', 'u1@kitra.abc'),
-  ('U2', 51, '234234', 'u2@kitra.abc'),
-  ('U3', 31, '345345', 'u3@kitra.abc'),
-  ('U4', 18, '456456', 'u4@kitra.abc'),
-  ('U5', 21, '567567', 'u5@kitra.abc'),
-  ('U6', 35, '678678', 'u6@kitra.abc');
+  (3000, 'U1', 21, '123123', 'u1@kitra.abc'),
+  (3001, 'U2', 51, '234234', 'u2@kitra.abc'),
+  (3002, 'U3', 31, '345345', 'u3@kitra.abc'),
+  (3003, 'U4', 18, '456456', 'u4@kitra.abc'),
+  (3004, 'U5', 21, '567567', 'u5@kitra.abc'),
+  (3005, 'U6', 35, '678678', 'u6@kitra.abc');
 
 -- Seed money_values table
 INSERT INTO money_values (treasure_id, amt)

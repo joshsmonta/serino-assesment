@@ -1,1 +1,46 @@
-node_modules/
+# Node modules and dependencies
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git
+.gitignore
+
+# Environment variables
+.env
+.env.test
+.env.*.local
+
+# Build output
+dist
+build
+.cache
+coverage
+
+# Docker-specific files
+docker-compose.yml
+Dockerfile*
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime*
+
+# Optional npm and yarn cache directories
+.npm
+.yarn
+.pnpm-store
+
+# Temporary files
+tmp
+*.swp
