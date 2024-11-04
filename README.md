@@ -47,10 +47,8 @@ In the request body, set the Content-Type to application/json and provide the fo
 
 Send the request. This will execute the necessary migrations to create the required database tables and seed them with initial data.
 
-3. **API Documentation**
+### API Documentation
 
 check the API docs here:
 
-```bash
-https://www.postman.com/aviation-candidate-11069076/public-workspace/request/qus42e9/grab-treasure-and-update-user-total
-```
+(https://www.postman.com/aviation-candidate-11069076/public-workspace/request/qus42e9/grab-treasure-and-update-user-total)
