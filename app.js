@@ -14,15 +14,16 @@ app.use(express.json());
 
 app.use('/api', [treasureRoutes, userRoutes]);
 
-app.post('/migrate', async (req, res) => {
+app.post('/migrate', (req, res) => {
     try {
         if (req.body.migrate_type == "up") {
-            await db.executeSqlFile('migrations/migrations-up.sql');
+            const result = db.executeSqlFile('migrations/migrations-up.sql');
+            res.status(200).send(result)
         }
         else if (req.body.migrate_type == "down") {
-            await db.executeSqlFile('migrations/migrations-down.sql');
+            const result = db.executeSqlFile('migrations/migrations-down.sql');
+            res.status(200).send(result)
         }
-        res.send("Migration completed successfully.");
     } catch (error) {
         console.error("Error executing migration:", error);
         res.status(500).send("Migration failed.");

@@ -5,7 +5,7 @@ services:
     image: mysql:latest
     container_name: mysql-kitra
     environment:
-      MYSQL_ROOT_USER: user #will be stored in docker secrets when deploying production
+      MYSQL_ROOT_USER: root #will be stored in docker secrets when deploying production
       MYSQL_ROOT_PASSWORD: 123456 #will be stored in docker secrets when deploying production
       MYSQL_DATABASE: kitra #will be stored in docker secrets when deploying production
     ports:
@@ -32,7 +32,7 @@ services:
     container_name: phpmyadmin-kitra
     environment:
       PMA_HOST: mysql-kitra
-      PMA_USER: user
+      PMA_USER: root
       PMA_PASSWORD: 123456
     ports:
       - "8080:80"

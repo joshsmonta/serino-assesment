@@ -10,8 +10,8 @@ export default class Database {
     }
     try {
       this.pool = mysql.createPool({
-        host: '127.0.0.1',
-        user: 'user',
+        host: 'mysql-kitra',
+        user: 'root',
         password: '123456',
         database: 'kitra',
         waitForConnections: true,
