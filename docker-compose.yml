@@ -2,17 +2,16 @@ version: '3.8'
 
 services:
   mysql:
-    image: mysql:latest # Or specify a version like mysql:8.0
+    image: mysql:latest
     container_name: mysql-kitra
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_DATABASE: kitra
+      MYSQL_ROOT_USER: user #will be stored in docker secrets when deploying production
+      MYSQL_ROOT_PASSWORD: 123456 #will be stored in docker secrets when deploying production
+      MYSQL_DATABASE: kitra #will be stored in docker secrets when deploying production
     ports:
-      - "3306:3306" # Maps the container's MySQL port to your host
+      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql # Persistent storage for database files
+      - mysql_data:/var/lib/mysql
 
   app:
     container_name: kitra-api
@@ -27,5 +26,18 @@ services:
       DATABASE_USER: root
       DATABASE_PASSWORD: root
       DATABASE_NAME: kitra
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-kitra
+    environment:
+      PMA_HOST: mysql-kitra
+      PMA_USER: user
+      PMA_PASSWORD: 123456
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
 volumes:
   mysql_data:

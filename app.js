@@ -1,6 +1,7 @@
 import express from 'express';
 import Database from './database.js';
 import treasureRoutes from './routes/treasure-routes.js';
+import userRoutes from './routes/user-routes.js';
 
 const app = express();
 const port = 3000;
@@ -11,7 +12,7 @@ const db = new Database();
 
 app.use(express.json());
 
-app.use('/api', treasureRoutes);
+app.use('/api', [treasureRoutes, userRoutes]);
 
 app.post('/migrate', async (req, res) => {
     try {
