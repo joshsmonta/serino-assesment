@@ -32,10 +32,12 @@ export default class Database {
   async query(sql) {
     if (this.pool) {
       try {
-        const [rows] = await this.pool.query(sql);
-        console.log(rows);
+        const conn = await this.pool.getConnection()
+        const [rows] = await conn.query(sql);
+        conn.release();
         return rows;
       } catch (error) {
+        conn.release();
         console.error('Error executing query:', error);
         // Handle query execution error gracefully
       }
