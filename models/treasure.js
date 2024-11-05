@@ -21,7 +21,9 @@ class Treasure {
     static async getAllTreasures() {
         const db = new Database();
         const [rows] = await db.pool.query('SELECT * FROM treasures');
-        return rows.map(row => new Treasure(row.id, row.name, row.latitude, row.longitude));
+        const mappedRows = rows.map(row => new Treasure(row.id, row.name, row.latitude, row.longitude));
+        db.release();
+        return mappedRows;
     }
 
     static async getTreasuresWithValue(amount) {
@@ -40,8 +42,9 @@ class Treasure {
         // Set a default value of 10 if amount is null or undefined
         const amountValue = amount ?? 10;
         const [rows] = await db.pool.query(query, [amountValue]);
-
-        return rows.map(row => new TreasureWithAmount(row.id, row.name, row.latitude, row.longitude, row.amount));
+        const mappedRows = rows.map(row => new TreasureWithAmount(row.id, row.name, row.latitude, row.longitude, row.amount));
+        db.release();
+        return mappedRows;
     }
 }
 

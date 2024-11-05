@@ -64,7 +64,13 @@ export default class Database {
 
   async close() {
     if (this.pool) {
-      await this.pool.end();
+      this.pool.end();
+    }
+  }
+
+  async release() {
+    if (this.pool) {
+      this.pool.release();
     }
   }
 }

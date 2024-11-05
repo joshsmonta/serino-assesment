@@ -17,6 +17,7 @@ export default class User {
             return null; // or throw an error, depending on how you want to handle not found cases
         }
         const row = rows[0];
+        db.release();
         return new User(row.id, row.name, row.email, row.age, row.total);
     }
 
@@ -41,7 +42,7 @@ export default class User {
             WHERE id = ?
         `;
         const [updateResult] = await db.pool.query(updateUserQuery, [totalAmt, user_id]);
-
+        db.release();
         return { success: true, message: updateResult };
     }
 }
