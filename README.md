@@ -49,6 +49,14 @@ In the request body, set the Content-Type to application/json and provide the fo
 
 Send the request. This will execute the necessary migrations to create the required database tables and seed them with initial data.
 
+### Database Access
+
+To monitor the database rows, you can access the phpmyadmin webpage via this link:
+
+```bash
+localhost:8080
+```
+
 ### API Documentation
 
 check the API docs here:
