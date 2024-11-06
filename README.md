@@ -13,6 +13,12 @@ To set up and run the project, follow these steps:
 - Ensure you have [Docker](https://www.docker.com/) installed on your machine.
 - Make sure you have [Docker Compose](https://docs.docker.com/compose/) installed.
 
+### Run Unit Test
+
+```bash
+npm test
+```
+
 ### Running the Application
 
 1. **Build the Docker Containers**
