@@ -1,7 +1,7 @@
 import mysql from "mysql2/promise";
 import fs from "fs";
 export default class Database {
-  constructor() {
+  constructor(connectionUri) {
     /* Perform initialization tasks here...
       The pool does not create all connections upfront but creates them on demand until the connection limit is reached.
     */
@@ -10,10 +10,7 @@ export default class Database {
     }
     try {
       this.pool = mysql.createPool({
-        host: 'mysql-kitra',
-        user: 'root',
-        password: '123456',
-        database: 'kitra',
+        uri: connectionUri,
         waitForConnections: true,
         connectionLimit: 10,
         maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`
@@ -31,11 +28,11 @@ export default class Database {
 
   async query(sql) {
     if (this.pool) {
+      const conn = await this.pool.getConnection();
       try {
-        const conn = await this.pool.getConnection()
-        const [rows] = await conn.query(sql);
-        conn.release();
-        return rows;
+        const result = await conn.query(sql);
+        await conn.release();
+        return result;
       } catch (error) {
         conn.release();
         console.error('Error executing query:', error);

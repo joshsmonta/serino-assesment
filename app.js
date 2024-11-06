@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 // Initialize Database
-const db = new Database();
+const db = new Database("mysql://root:123456@mysql-kitra:3306/kitra");
 
 
 app.use(express.json());
