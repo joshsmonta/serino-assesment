@@ -19,7 +19,11 @@ export default class Database {
         enableKeepAlive: true,
         keepAliveInitialDelay: 0,
       });
-      console.log("Database connected");
+      if (this.pool) {
+        console.log("Database connected");
+      } else {
+        console.error("Database connection error:", this.pool)
+      }
     } catch (error) {
       console.error("Database connection error:", err)
     }

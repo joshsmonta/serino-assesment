@@ -10,25 +10,44 @@ To set up and run the project, follow these steps:
 
 ### Prerequisites
 
-- Ensure you have [Docker](https://www.docker.com/) installed on your machine.
-- Make sure you have [Docker Compose](https://docs.docker.com/compose/) installed.
+- Make sure you have [MySQL](https://dev.mysql.com/downloads/installer/) and [NodeJS](https://nodejs.org/en/download/package-manager) installed on your machine.
+  Configure MYSQL properly after installation and add it to your PATH environment.
 
-### Run Unit Test
+After installation of mysql, login using your configured credentials and create a database called `kitra`:
 
 ```bash
-npm test
+mysql> CREATE DATABASE kitra;
 ```
+
+Create a `.env` file to the folder and add your connection URI so that the app could access the database.
+
+```bash
+MYSQL_CONNECTION_URI="mysql://{your_username}:{your_password}@127.0.0.1:3306/kitra"
+```
+
+- (Optional) Ensure you have ![Docker](https://www.docker.com/) installed on your machine.
+- (Optional) Make sure you have ![Docker Compose](https://docs.docker.com/compose/) installed.
 
 ### Running the Application
 
-1. **Build the Docker Containers**
+NOTE: you can run the application locally or via docker compose.
 
-   Open your terminal and navigate to the project directory. Run the following command to build the Docker containers:
+1a. **Option A: Running Locally**
 
-   ```bash
-   docker-compose build
-   docker-compose up -d
-   ```
+If you've already installed MySQL and created a database for `kitra`, then you could run the project locally by running this command:
+
+```bash
+npm start
+```
+
+1b. **Option B: Running docker containers**
+
+Open your terminal and navigate to the project directory. Run the following command to build the Docker containers:
+
+```bash
+docker-compose build
+docker-compose up -d
+```
 
 2. **Run Migrations**
 

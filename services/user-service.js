@@ -14,3 +14,18 @@ export async function grabTreasureService(user_id, treasure_id) {
         return [{ "message": "an error occurred inside grabTreasureService()" }];
     }
 }
+
+export async function getUser(user_id) {
+    try {
+        const result = await User.getUser(user_id)
+        if (result.success) {
+            return result
+        } else {
+            console.error(result.message);
+            return [{ "message": result.message }];
+        }
+    } catch (err) {
+        console.error(error);
+        return [{ "message": "an error occurred inside grabTreasureService()" }];
+    }
+}

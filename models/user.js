@@ -14,10 +14,11 @@ export default class User {
         const query = `SELECT * FROM users WHERE id = ${id}`;
         const [rows] = await db.query(query);
         if (rows.length === 0) {
-            return null; // or throw an error, depending on how you want to handle not found cases
+            return { success: false, message: "no result found" }
         }
         const row = rows[0];
-        return new User(row.id, row.name, row.age, undefined, row.email, row.total);
+        const user = new User(row.id, row.name, row.age, undefined, row.email, row.total);
+        return { success: true, data: user }
     }
 
     static async grabTreasure(user_id, treasure_id) {
