@@ -25,14 +25,14 @@ Create a `.env` file to the folder and add your connection URI so that the app c
 MYSQL_CONNECTION_URI="mysql://{your_username}:{your_password}@127.0.0.1:3306/kitra"
 ```
 
-- (Optional) Ensure you have ![Docker](https://www.docker.com/) installed on your machine.
-- (Optional) Make sure you have ![Docker Compose](https://docs.docker.com/compose/) installed.
+- (Optional) Ensure you have [Docker](https://www.docker.com/) installed on your machine.
+- (Optional) Make sure you have [Docker Compose](https://docs.docker.com/compose/) installed.
 
 ### Running the Application
 
 NOTE: you can run the application locally or via docker compose.
 
-1a. **Option A: Running Locally**
+**Option A: Running Locally**
 
 If you've already installed MySQL and created a database for `kitra`, then you could run the project locally by running this command:
 
@@ -40,7 +40,7 @@ If you've already installed MySQL and created a database for `kitra`, then you c
 npm start
 ```
 
-1b. **Option B: Running docker containers**
+**Option B: Running docker containers**
 
 Open your terminal and navigate to the project directory. Run the following command to build the Docker containers:
 
@@ -49,7 +49,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-2. **Run Migrations**
+**Run Migrations**
 
 Using the Migrate Endpoint
 Once the application is running, you need to execute the initial migrations to set up the database schema. Follow these steps:
@@ -80,6 +80,14 @@ To monitor the database rows, you can access the phpmyadmin webpage via this lin
 
 ```bash
 localhost:8080
+```
+
+### (Optional) Run Unit Test
+
+The unit tests only works when you have docker installed because the test creates and destroys it's own database after the tests are finish.
+
+```bash
+npm test
 ```
 
 ### API Documentation
