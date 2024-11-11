@@ -16,6 +16,7 @@ To set up and run the project, follow these steps:
 After installation of mysql, login using your configured credentials and create a database called `kitra`:
 
 ```bash
+mysql -u {your-username} -p
 mysql> CREATE DATABASE kitra;
 ```
 
