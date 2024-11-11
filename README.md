@@ -35,6 +35,12 @@ NOTE: you can run the application locally or via docker compose.
 
 **(Option A): Running Locally**
 
+Install all packages first
+
+```bash
+npm install
+```
+
 If you've already installed MySQL and created a database for `kitra`, then you could run the project locally by running this command:
 
 ```bash
