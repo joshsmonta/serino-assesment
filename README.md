@@ -76,7 +76,9 @@ Send the request. This will execute the necessary migrations to create the requi
 
 ### Database Access
 
-To monitor the database rows, you can access the phpmyadmin webpage via this link:
+You can access the database and monitor it with [MYSQL workbench](https://dev.mysql.com/downloads/workbench/).
+
+(Optional) if you successfully deployed the docker compose without any issues, then you can access the phpmyadmin webpage via this link:
 
 ```bash
 localhost:8080
