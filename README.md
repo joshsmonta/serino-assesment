@@ -33,7 +33,7 @@ MYSQL_CONNECTION_URI="mysql://{your_username}:{your_password}@127.0.0.1:3306/kit
 
 NOTE: you can run the application locally or via docker compose.
 
-**Option A: Running Locally**
+**(Option A): Running Locally**
 
 If you've already installed MySQL and created a database for `kitra`, then you could run the project locally by running this command:
 
@@ -41,9 +41,9 @@ If you've already installed MySQL and created a database for `kitra`, then you c
 npm start
 ```
 
-**Option B: Running docker containers**
+**(Option B): Running docker containers**
 
-Open your terminal and navigate to the project directory. Run the following command to build the Docker containers:
+**IMPORTANT!** If you plan on running the containers, first make sure that port `3306`, `3000` and `80` are not being used.
 
 ```bash
 docker-compose build
